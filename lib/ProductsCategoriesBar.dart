@@ -12,7 +12,7 @@ class GroceryCategories extends StatefulWidget {
 }
 
 class _GroceryCategories extends State<GroceryCategories> {
-  List<String> categorieslist = [
+  List<String> categoriesList = [
     "Fruits",
     "Vegetables",
     "Meat",
@@ -32,7 +32,7 @@ class _GroceryCategories extends State<GroceryCategories> {
         thumbColor: Colors.red,
         child: ListView.builder(
           padding: EdgeInsets.symmetric(vertical: size.height * 0.013),
-          itemCount: categorieslist.length,
+          itemCount: categoriesList.length,
           itemBuilder: (context, index) {
             return buildCategory(index);
           },
@@ -59,10 +59,10 @@ class _GroceryCategories extends State<GroceryCategories> {
               color: selected == index ? Colors.pink : Colors.transparent,
               // shape: BoxShape.circle,
               border: Border.all(color: Colors.pink),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
+              borderRadius: const BorderRadius.all(Radius.circular(10))),
           child: Center(
             child: Text(
-              categorieslist[index],
+              categoriesList[index],
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,

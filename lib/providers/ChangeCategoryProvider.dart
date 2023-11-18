@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
+
+import '../Data/models/ProductsDataModel.dart';
 
 class ChangeCategory with ChangeNotifier {
   List<ProductsData> products = fruitProducts;

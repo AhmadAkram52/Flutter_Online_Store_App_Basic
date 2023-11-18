@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:online_store/Data/models/ProductsDataModel.dart';
 import 'package:online_store/DetailViewBody.dart';
 import 'package:online_store/SearchScreen.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
-import 'package:online_store/providers/ChangeCategoryProvider.dart';
-import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatelessWidget {
   final ProductsData product;
@@ -12,7 +10,6 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ChangeCategory>(context);
     return Scaffold(
       backgroundColor: product.color,
       appBar: buildAppBar(context),
@@ -36,7 +33,7 @@ class DetailsScreen extends StatelessWidget {
               Navigator.push(
                 context, // Use the valid BuildContext here
                 MaterialPageRoute(
-                  builder: (context) => SearchScreen(),
+                  builder: (context) => const SearchScreen(),
                 ),
               );
             },

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:online_store/HomePage.dart';
 import 'package:online_store/SearchScreen.dart';
 import 'package:online_store/SplashScreen.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
 import 'package:online_store/providers/ChangeCartValue.dart';
 import 'package:online_store/providers/ChangeCategoryProvider.dart';
 import 'package:provider/provider.dart';
+
+import 'Data/models/ProductsDataModel.dart';
 
 void main() {
   runApp(const OnlineStoreApp());
@@ -54,7 +55,7 @@ class HomePage extends StatelessWidget {
             Navigator.push(
               context, // Use the valid BuildContext here
               MaterialPageRoute(
-                builder: (context) => SearchScreen(),
+                builder: (context) => const SearchScreen(),
               ),
             );
           },

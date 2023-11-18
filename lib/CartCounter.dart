@@ -3,6 +3,8 @@ import 'package:online_store/providers/ChangeCartValue.dart';
 import 'package:provider/provider.dart';
 
 class CartCounter extends StatefulWidget {
+  const CartCounter({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _CartConter();
@@ -10,46 +12,47 @@ class CartCounter extends StatefulWidget {
 }
 
 class _CartConter extends State<CartCounter> {
-  int numofitems = 1;
+  int numOfItems = 1;
 
   @override
   Widget build(BuildContext context) {
-    final valueprovider = Provider.of<ChangeCartVal>(context);
+    final valueProvider = Provider.of<ChangeCartVal>(context);
     return Row(
       children: [
-        buildbuton(
-            Icon(
+        buildButton(
+            const Icon(
               Icons.remove,
               color: Colors.black,
             ), press: () {
-          if (numofitems > 1)
+          if (numOfItems > 1) {
             setState(() {
-              numofitems--;
-              valueprovider.setval(numofitems);
+              numOfItems--;
+              valueProvider.setVal(numOfItems);
             });
+          }
         }),
         Padding(
           padding: const EdgeInsets.all(10),
           child: Text(
-            "$numofitems",
-            style: TextStyle(fontSize: 20),
+            "$numOfItems",
+            style: const TextStyle(fontSize: 20),
           ),
         ),
-        buildbuton(
-            Icon(
+        buildButton(
+            const Icon(
               Icons.add,
               color: Colors.black,
             ), press: () {
           setState(() {
-            numofitems++;
-            valueprovider.setval(numofitems);
+            numOfItems++;
+            valueProvider.setVal(numOfItems);
           });
         })
       ],
     );
   }
 
-  SizedBox buildbuton(Icon icon, {required Function() press}) {
+  SizedBox buildButton(Icon icon, {required Function() press}) {
     return SizedBox(
       height: 34,
       width: 40,

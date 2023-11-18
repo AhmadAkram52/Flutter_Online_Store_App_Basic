@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:online_store/CartCounter.dart';
 import 'package:online_store/CartWithOrderBtn.dart';
+import 'package:online_store/Data/models/ProductsDataModel.dart';
 import 'package:online_store/LikedBtn.dart';
-import 'package:online_store/ProductTitleImage.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
+import 'package:online_store/ProductsTitleImage.dart';
 
 class DetailViewBody extends StatelessWidget {
   final ProductsData product;
@@ -52,7 +52,7 @@ class DetailViewBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                ProductTitlewithImage(product: product)
+                ProductTitleWithImage(product: product)
               ],
             ),
           )

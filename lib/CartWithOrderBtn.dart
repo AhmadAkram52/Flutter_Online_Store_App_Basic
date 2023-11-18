@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
 import 'package:online_store/providers/ChangeCartValue.dart';
 import 'package:provider/provider.dart';
+
+import 'Data/models/ProductsDataModel.dart';
 
 class CartWithOrderBtn extends StatefulWidget {
   final ProductsData product;
@@ -19,13 +20,13 @@ class CartWithOrderBtn extends StatefulWidget {
 class _CartWithOrderBtnState extends State<CartWithOrderBtn> {
   @override
   Widget build(BuildContext context) {
-    final valueprovider = Provider.of<ChangeCartVal>(context);
+    final valueProvider = Provider.of<ChangeCartVal>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Stack(
           children: [
-            Icon(
+            const Icon(
               Icons.shopping_cart_outlined,
               size: 50,
             ),
@@ -39,8 +40,8 @@ class _CartWithOrderBtnState extends State<CartWithOrderBtn> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
-                        child: Text(valueprovider.val.toString(),
-                            style: TextStyle(
+                        child: Text(valueProvider.val.toString(),
+                            style: const TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white)),
@@ -48,23 +49,23 @@ class _CartWithOrderBtnState extends State<CartWithOrderBtn> {
                     )))
           ],
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         ElevatedButton(
           onPressed: () {
             Fluttertoast.showToast(
                 msg: "Thank You! \n For Ordering",
                 backgroundColor: widget.product.color);
           },
-          child: Padding(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith(
+                (states) => widget.product.color),
+          ),
+          child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
             child: Text(
               "Order Now!",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-          ),
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.resolveWith(
-                (states) => widget.product.color),
           ),
         )
       ],

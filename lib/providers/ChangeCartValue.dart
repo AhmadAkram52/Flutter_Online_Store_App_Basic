@@ -5,7 +5,7 @@ class ChangeCartVal with ChangeNotifier {
 
   int get value => val;
 
-  void setval(int value) {
+  void setVal(int value) {
     val = value;
     notifyListeners();
   }

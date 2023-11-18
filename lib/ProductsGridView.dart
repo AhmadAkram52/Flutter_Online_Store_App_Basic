@@ -21,7 +21,7 @@ class _ProductsViewState extends State<ProductsView> {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: GridView.builder(
               itemCount: provider.products.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisSpacing: 10,
                   crossAxisSpacing: 10,
                   crossAxisCount: 2,

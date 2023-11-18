@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
+import 'package:online_store/Data/models/ProductsDataModel.dart';
 
-class ProductTitlewithImage extends StatelessWidget {
-  const ProductTitlewithImage({
+class ProductTitleWithImage extends StatelessWidget {
+  const ProductTitleWithImage({
     super.key,
     required this.product,
   });
@@ -18,26 +18,26 @@ class ProductTitlewithImage extends StatelessWidget {
         children: [
           Text(
             product.category,
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: const TextStyle(color: Colors.white, fontSize: 20),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             product.title,
-            style: TextStyle(color: Colors.white, fontSize: 35),
+            style: const TextStyle(color: Colors.white, fontSize: 35),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
               RichText(
                 text: TextSpan(children: [
-                  TextSpan(text: "Rs: ", style: TextStyle(fontSize: 20)),
+                  const TextSpan(text: "Rs: ", style: TextStyle(fontSize: 20)),
                   TextSpan(
                       text: product.price.toString(),
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
                 ]),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: Image.asset(
                   product.image,

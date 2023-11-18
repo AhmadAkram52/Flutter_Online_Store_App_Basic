@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_store/Data/models/ProductsDataModel.dart';
 import 'package:online_store/DetailsScreen.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -10,11 +10,12 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  TextEditingController _searchController = TextEditingController();
-  List<ProductsData> searchlist = allProducts;
+  final TextEditingController _searchController = TextEditingController();
+  List<ProductsData> searchList = allProducts;
 
   @override
   void initState() {
+    super.initState();
     pushDataToList(allProducts, listsToPush);
   }
 
@@ -29,7 +30,7 @@ class _SearchScreenState extends State<SearchScreen> {
         //     // Handle back button pressed
         //   },
         // ),
-        title: Text("Search Products"),
+        title: const Text("Search Products"),
       ),
       body: Column(
         children: [
@@ -46,20 +47,20 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           Expanded(
             child: ListView.builder(
-              padding: EdgeInsets.all(10),
-              itemCount: searchlist.length,
+              padding: const EdgeInsets.all(10),
+              itemCount: searchList.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  // tileColor: searchlist[index].color,
-                  leading: Image.asset(searchlist[index].image),
-                  title: Text(searchlist[index].title),
-                  subtitle: Text(searchlist[index].category),
-                  trailing: Icon(Icons.shopping_cart),
+                  // tileColor: searchList[index].color,
+                  leading: Image.asset(searchList[index].image),
+                  title: Text(searchList[index].title),
+                  subtitle: Text(searchList[index].category),
+                  trailing: const Icon(Icons.shopping_cart),
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => DetailsScreen(
-                              product: searchlist[index],
+                              product: searchList[index],
                             )),
                   ),
                 );
@@ -71,15 +72,15 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  void pushDataToList(List<dynamic> List, List<List<dynamic>> Lists) {
-    for (var sourceList in Lists) {
-      List.addAll(sourceList);
+  void pushDataToList(List<dynamic> list, List<List<dynamic>> lists) {
+    for (var sourceList in lists) {
+      list.addAll(sourceList);
     }
   }
 
   void _searchProducts(String query) {
     setState(() {
-      searchlist = allProducts
+      searchList = allProducts
           .where((product) =>
               product.title.toLowerCase().contains(query.toLowerCase()))
           .toList();

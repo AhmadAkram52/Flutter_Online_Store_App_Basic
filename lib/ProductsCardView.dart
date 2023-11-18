@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_store/models/ProdutsDataModel.dart';
+import 'package:online_store/Data/models/ProductsDataModel.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductsData product;
@@ -20,7 +20,7 @@ class ProductCard extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               // height: 180,
               // width: 160,
               decoration: BoxDecoration(
@@ -36,7 +36,7 @@ class ProductCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Text(
               product.title,
-              style: TextStyle(color: Colors.black38, fontSize: 20),
+              style: const TextStyle(color: Colors.black38, fontSize: 20),
             ),
           ),
           Text("Rs: ${product.price}"),
