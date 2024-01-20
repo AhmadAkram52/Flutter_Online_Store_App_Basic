@@ -48,7 +48,7 @@ class _GroceryCategories extends State<GroceryCategories> {
       onTap: () {
         setState(() {
           selected = index;
-          provider.setlist(index);
+          provider.setList(index);
         });
       },
       child: Padding(

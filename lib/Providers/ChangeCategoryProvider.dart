@@ -5,9 +5,9 @@ import '../Data/models/ProductsDataModel.dart';
 class ChangeCategory with ChangeNotifier {
   List<ProductsData> products = fruitProducts;
 
-  List<ProductsData> get productslist => products;
+  List<ProductsData> get productsList => products;
 
-  void setlist(int index) {
+  void setList(int index) {
     switch (index) {
       case 0:
         products = fruitProducts;
